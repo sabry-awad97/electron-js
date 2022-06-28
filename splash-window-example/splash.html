@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+	<meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src *"
+        />
+        <title></title>
+    </head>
+    <body>
+        <p>version <span id="versionSpan"></span></p>
+    </body>
+    <script>
+        const { ipcRenderer } = require("electron");
+
+        ipcRenderer.send("get-version");
+
+        ipcRenderer.on("set-version", (event, arg) => {
+            const versionSpan = document.getElementById("versionSpan");
+            versionSpan.innerHTML = arg;
+        });
+    </script>
+</html>
