@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+	<meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src *"
+        />
+        <title></title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <!-- All of the Node.js APIs are available in this renderer process. -->
+        We are using Node.js
+        <script>
+            document.write(process.versions.node);
+        </script>
+        , Chromium
+        <script>
+            document.write(process.versions.chrome);
+        </script>
+        , and Electron
+        <script>
+            document.write(process.versions.electron);
+        </script>
+
+        <div>
+            <h2>The capturePage Method</h2>
+            <button id="captureButton">Capture PNG</button>
+        </div>
+
+        <div>
+            <h2>The printToPDF Method</h2>
+            <button id="printButton">Print to PDF</button>
+        </div>
+
+        <div>
+            <h2>Getting Information about Screens</h2>
+        </div>
+
+        <div>
+            <h2>
+                Finding Locales &lt;&lt;
+                <script>
+                    document.write(window.navigator.language);
+                </script>
+                &gt;&gt;
+            </h2>
+        </div>
+    </body>
+    <script>
+        require("./dist/renderer.js");
+    </script>
+</html>
